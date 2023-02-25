@@ -3,13 +3,33 @@ import './App.css';
 // import Mycomponent from './MyComponent';
 import React from 'react';
 // import Hello from './Hello';
-import Counter from './Counter';
+import UseRef from './UseRef';
 // 앞에는 함수명 뒤에는 .js가 생략된 파일명
 
-// 4. useState : 버튼 동적구형
+ 
+
 function App(){
-  return (<Counter/>)
+  return(
+    <UseRef/>
+  );
 }
+
+export default App;
+
+
+
+// 5. function App(){
+//   return(
+//     <InputState/>
+//   );
+// }
+
+// export default App;
+
+// 4. useState : 버튼 동적구형
+// function App(){
+//   return (<Counter/>)
+// }
 
 
 // 3. props : 두 컴포넌트 사이에 데이터 전송
@@ -65,4 +85,3 @@ function App(){
 //   );
 // }
 
-export default App;
