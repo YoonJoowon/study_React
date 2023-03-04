@@ -1,68 +1,102 @@
-import logo from './logo.svg';
-import './App.css';
-// import Mycomponent from './MyComponent';
-import React, {useState, useRef} from 'react';
-// import Hello from './Hello';
-import UserList from './UserList';
-import ArrayAdd2 from './ArrayAdd2';
-// 앞에는 함수명 뒤에는 .js가 생략된 파일명
+// useEffect 예제1.
+
+import React from "react";
+import UseEffet from "./UseEffect";
 
 function App(){
 
-  const [inputs, setInputs] = useState({username: "", email:"" });
-
-  const {username, email} = inputs;
-
-  const onChange = (e) => {
-    const {name, value} = e.target; 
-    // e.target은 onchange이벤트가 설정된input 태그를 가리킴
-    setInputs({
-      ...inputs,
-      [name] : value
-    })
-  }
-
-  const [users, setUsers]= useState([
-    {id:1, username: 'user1', email: 'user1@gmail.com'},
-    {id:2, username: 'user2', email: 'user2@gmail.com'},
-    {id:3, username: 'user3', email: 'user3@gmail.com'}
-]);
-
-  const nextId = useRef(4)
-
-  const onCreate = () => {
-    const user = {
-      id: nextId.current,
-      username,
-      email
-    }
-
-    setUsers(users.concat(user))
-    setInputs({
-      username:"",
-      email:""
-    });
-    nextId.current +=1;
-  }
-
-  const onRemove = id => {
-    setUsers(users.filter(user = user.id !== id));
-  }
-
-  return(
-    <div>
-      <ArrayAdd2
-        username={username}
-        email={email}
-        onChange={onChange}
-        onCreate={onCreate}        
-        />
-      <UserList users={users} onRemove={onRemove}/>
-    </div>
-  );
+  return(<UseEffet/>)
+  
 }
 
 export default App;
+
+
+
+// import logo from './logo.svg';
+// import './App.css';
+// // import Mycomponent from './MyComponent';
+// import React, {useState, useRef, useEffect} from 'react';
+// // import Hello from './Hello';
+// import UserList from './UserList';
+// import ArrayAdd2 from './ArrayAdd2';
+// // 앞에는 함수명 뒤에는 .js가 생략된 파일명
+
+// function App(){
+
+//   const [inputs, setInputs] = useState({username: "", email:"" });
+
+//   const {username, email} = inputs;
+
+//   const handleInputChange = (e) => {
+//     const {name, value} = e.target; 
+//     // e.target은 onchange이벤트가 설정된input 태그를 가리킴
+//     setInputs({
+//       ...inputs,
+//       [name] : value
+//     })
+//   }
+
+//   const [users, setUsers]= useState([
+//     // users라는 변수 안에 있는 배열
+//     // usesState를 활용해서 상태관리 - (초기값)파라미터 안에 집어넣어서 관리
+//     // setUsers를 활용해서 변화된 것을 적용
+//     {id:1, username: 'user1', email: 'user1@gmail.com', active : true},
+//     {id:2, username: 'user2', email: 'user2@gmail.com', active : false},
+//     {id:3, username: 'user3', email: 'user3@gmail.com', active : false}
+// ]);
+
+//   const nextId = useRef(4)
+
+//   const handleCreateClick = () => {
+//     // 추가되는 이메일을 받아주는 함수 - ArrayAdd 의 onCreate를 가져옴
+//     const user = {
+//       id: nextId.current,
+//       username,
+//       email
+//     }
+
+//     setUsers(users.concat(user))
+//     setInputs({
+//       username:"",
+//       email:""
+//     });
+//     nextId.current +=1;
+//   }
+
+//   const handleRemoveClick = id => {
+//     setUsers(users.filter(user => user.id!==id));
+//   }
+
+//   const handleToggleClick = (id) => {
+//     // 삼항연산자
+//     setUsers(users.map(user => user.id===id?{...user, active: !user.active}:user))
+
+//   }
+
+
+
+
+
+//   return(
+//     <div>
+//       {/* ArrayAdd2, UserList 하위 컴포넌트에 보냄 */}
+//       <ArrayAdd2
+//         username={username}
+//         // 중괄호 안에는 username이라 적혀있는 데이터를 가져옴
+//         email={email}
+//         onInputChange={handleInputChange}
+//         // App안의 함수 const 중 중괄호 onChange를 호출
+//         // 앞의 onChange는 하위컴포넌트를 props 보낼 때 onChange로 보내겠다는 뜻
+//         onCreateClick={handleCreateClick}        
+//         />
+//       <UserList propUsers={users} onRemove={handleRemoveClick} toggleClick={handleToggleClick}/>
+//       {/* UserList 의 userlist - users 호출  */}
+//     </div>
+//   );
+// }
+
+// export default App;
 
 
 // 5. function App(){

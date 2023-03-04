@@ -12,10 +12,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   // 렌더 즉 화면에 보여지게끔 가공을 하겠다
-  <React.StrictMode>
-    <App />
-    {/* App 태그를 해서 이 자리에 불러옴 */}
-  </React.StrictMode>
+  // <React.StrictMode>
+  //   {/* console돌리면 2개씩 나오는 이유임 주석처리하면 하나만 나옴 */}
+  //   <App />
+  //   {/* App 태그를 해서 이 자리에 불러옴 */}
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
