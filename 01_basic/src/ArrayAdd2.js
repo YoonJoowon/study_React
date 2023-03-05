@@ -1,6 +1,9 @@
 import React from "react";
 
 function ArrayAdd2({username, email, onInputChange, onCreateClick}){
+    // 하위컴포넌트 파라미터자리에 중괄호를 통해서 데이터명들을 받음
+
+    console.log("ArrayAdd component! - input, button")
 
     return(
         <div>
@@ -22,4 +25,4 @@ function ArrayAdd2({username, email, onInputChange, onCreateClick}){
     )
 }
 
-export default ArrayAdd2
+export default React.memo(ArrayAdd2);

@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 function User({propUser, onRemoveClick, onToggleClick}){
 
-    const {username, email, id, active} = propUser;
-
     // 2. propUser 작성 반복을 피하는 방법 - 비구조(구조분해)
+    const {username, email, id, active} = propUser;
+    useEffect(
+        ()=>{
+            console.log("화면에 나타남") // mount : 초기화면렌더링 + 등록버튼클릭시
+            return ()=>{console.log("화면에 사라짐")} //unmount : 삭제버튼 클릭시
+        },[] // [] : 뎁스라고 해서 특정조건이 들어간다
+    )
+
     return(
         <div>
             <b style={{cursor:'pointer', color:active?'red':'black'}} onClick={()=>{onToggleClick(id)}}>{username}</b>
@@ -42,4 +48,4 @@ function UserList({propUsers, onRemove, toggleClick}){
     )
 }
 
-export default UserList;
+export default React.memo(UserList);
