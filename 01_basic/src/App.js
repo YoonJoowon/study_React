@@ -1,38 +1,57 @@
-// useRef() 와 useEffect() 예제
+// [MathQuiz] - useRef, useState 연습
 
-import React, { useEffect, useRef } from "react";
-import './App.css';
+import React from "react";
+import MathQuiz from "./MathStudy1"
+import "./App.css"
 
 function App(){
-  const inputRef = useRef()
-
-  useEffect(()=>{
-    // 초기 랜더링시 보여지게 되는 화면
-    // useEffect는 뎁스라는것을 넣고 안넣고를 통해 조건을 만듬
-    console.log(inputRef);
-    inputRef.current.focus();
-  },[])
-
-  const loginAlert = ()=>{
-    alert(` Welcome! ${inputRef.current.value}`)
-    // current의 value를 보여주겠다 = id값
-    inputRef.current.focus();
-  }
 
   return(
-    <div className="App">
-      <header className="App-header">
-        <input ref={inputRef} type="text" placeholder="id"/>
-        {/* ref를 통해서 포커스 지정 */}
-        <input type="text" placeholder="pw"/>
-        <button onClick={loginAlert}>Login</button>
-      </header>
-
-    </div>
+    <MathQuiz/>
   )
+
 }
 
 export default App;
+
+
+
+
+// useRef() 와 useEffect() 예제
+
+// import React, { useEffect, useRef } from "react";
+// import './App.css';
+
+// function App(){
+//   const inputRef = useRef()
+
+//   useEffect(()=>{
+//     // 초기 랜더링시 보여지게 되는 화면
+//     // useEffect는 뎁스라는것을 넣고 안넣고를 통해 조건을 만듬
+//     console.log(inputRef);
+//     inputRef.current.focus();
+//   },[]) // []의 의미 : 웹사이트에 들어오자마자 첫화면에서 렌더링할때 id 인풋창에 포커스가 되도록
+
+//   const loginAlert = ()=>{
+//     alert(` Welcome! ${inputRef.current.value}`)
+//     // current의 value를 보여주겠다 = id값
+//     inputRef.current.focus();
+//   }
+
+//   return(
+//     <div className="App">
+//       <header className="App-header">
+//         <input ref={inputRef} type="text" placeholder="id"/>
+//         {/* ref를 통해서 포커스 지정 */}
+//         <input type="text" placeholder="pw"/>
+//         <button onClick={loginAlert}>Login</button>
+//       </header>
+
+//     </div>
+//   )
+// }
+
+// export default App;
 
 
 
