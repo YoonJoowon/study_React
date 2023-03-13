@@ -24,6 +24,7 @@ function getStatus(squares, xIsNext) {
   }
 }
 
+
 function gameReducer(state, action) {
   const { squares, xIsNext } = state;
   switch (action.type) {
